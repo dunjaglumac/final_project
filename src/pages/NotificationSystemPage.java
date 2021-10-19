@@ -1,6 +1,6 @@
 package pages;
 
-public class NotificationSistemPage {
+public class NotificationSystemPage {
  
 //	get metodu za element koji prikazuje poruku
 //			//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]
