@@ -1,6 +1,10 @@
 package pages;
 
-public class NotificationSystemPage {
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class NotificationSystemPage extends BasicPage {
  
 //	get metodu za element koji prikazuje poruku
 //			//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]
@@ -9,5 +13,10 @@ public class NotificationSystemPage {
 //			čeka se da element //*[contains(@class, 'system_message')]
 //			za atribut style dobije vrednost  "display: none;"
 
+	public NotificationSystemPage(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
+		super(driver, wait, js);
+	}
+	
+	
 	
 }
