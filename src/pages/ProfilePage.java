@@ -48,7 +48,7 @@ public class ProfilePage extends BasicPage {
 	}
 
 	public WebElement getImageUploadButton() {
-		return this.driver.findElement(By.xpath("//*[@class='upload']"));
+		return this.driver.findElement(By.xpath("//a[@title='Uplaod']"));
 	}
 	
 	public WebElement getImageRemoveButton() {
@@ -74,11 +74,11 @@ public class ProfilePage extends BasicPage {
 	
 	//Methods
 	
-	public void uploadProfileImage(String image) {
-		js.executeScript("arguments[0].click()", this.getImageUploadButton());
-		File img = new File(image);
-		String imgPath = img.getAbsolutePath();
-		this.getImageUploadButton().sendKeys(imgPath);
+	public void uploadProfileImage(String image) throws InterruptedException {
+		js.executeScript("arguments[0].click();", this.getImageUploadButton());
+		Thread.sleep(3000);
+		WebElement input = driver.findElement(By.xpath("//*[@id='form-upload']/input"));
+		input.sendKeys(image);
 	}
 	
 	public void removeProfileImage() {
