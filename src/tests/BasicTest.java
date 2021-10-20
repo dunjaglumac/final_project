@@ -73,7 +73,7 @@ public abstract class BasicTest {
 		
 		@AfterMethod
 		public void afterTest() {
-			this.driver.quit();
+//			this.driver.quit();
 		}
 
 }

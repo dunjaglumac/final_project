@@ -56,7 +56,7 @@ public class ProfilePage extends BasicPage {
 	}
 	
 	public WebElement getSaveButton() {
-		return driver.findElement(By.xpath("(//*[@name='btn_submit'])[2]"));
+		return driver.findElement(By.name("btn_submit"));
 	}
 	
 	public Select getCountry() {
