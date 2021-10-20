@@ -58,6 +58,10 @@ public class PopupPage extends BasicPage {
 		return this.driver.findElement(By.id("location_id"));
 	}
 	
+	public WebElement getCloseElement() {
+		return driver.findElement(By.xpath("//*[@class='close-btn close-btn-white']"));
+	}
+	
 	public WebElement getSubmit() {
 		return this.driver.findElement(By.name("btn_submit"));
 	}
@@ -68,11 +72,12 @@ public class PopupPage extends BasicPage {
 	}
 	
 	public void setLocation(String locationName) throws InterruptedException {
+		this.getLocationInHeader().click();
+		Thread.sleep(1000);
 		this.getKeyword().click();
 		Thread.sleep(1000);
-		this.getLocationItem(locationName).getAttribute("data-value");
-		js.executeScript("arguments[0].value=arguments[1]", this.getLocationInput(), this.getLocationItem(locationName).getAttribute("data-value"));
-		js.executeScript("arguments[0].click()", this.getSubmit());
+		this.getLocationItem(locationName).click();
+		this.getSubmit().click();
 	}
 	
 	public void clickCloseButton() {
