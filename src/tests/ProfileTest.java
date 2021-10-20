@@ -14,9 +14,12 @@ public class ProfileTest extends BasicTest {
 	//		učitajte stranicu http://demo.yo-meals.com/member/profile
 //		zamenite sve osnovne informacije korisnika
 //		verifikujte da je prikazana poruka sa tekstom "Setup Successful"
+	
 //		odjavite se sa sajta
 //		verifikujte da je prikazana poruka sa tekstom "Logout Successfull!"
 //
+	
+	
 //		U okviru change profile image testa potrebno je izvršiti sledeće korake:
 //		učitajte stranicu http://demo.yo-meals.com/guest-user/login-form
 //		ugasite lokacioni iskačući dijalog
@@ -52,12 +55,19 @@ public class ProfileTest extends BasicTest {
 			this.popupPage.clickCloseButton();
 			Thread.sleep(1000);
 			this.loginPage.login(username, password);
-			Assert.assertTrue(this.notificationPage.messageText().contains("Login Successfull"), "[ERROR] Message did not appear, not successful login.");
+			
+			String message = this.notificationPage.messageText();
+			Assert.assertTrue(message.contains("Login Successfull"), "[ERROR] Message did not appear, not successful login.");
 			Thread.sleep(1000);
 			
 			driver.get(baseURL + "member/profile");
 			this.profilePage.inputUserInfo(firstName, lastName, address, phone, zipCode, countryName, stateName, cityName);
+			message = this.notificationPage.messageText();
+			Assert.assertTrue(message.contains("Setup Successful"),"[ERROR] Message did not appear, not successful setup.");
 			
+			this.authPage.loggingOut();
+			message = this.notificationPage.messageText();
+			Assert.assertTrue(message.contains("Logout Successfull"),"[ERROR] Message did not appear, not successful logout.");
 			
 		}
 		
