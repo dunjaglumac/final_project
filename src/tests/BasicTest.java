@@ -37,7 +37,7 @@ public abstract class BasicTest {
 		protected SoftAssert sa;
 	
 		// Pages
-		protected AuthPage authorizationPage;
+		protected AuthPage authPage;
 		protected CartSummaryPage cartPage;
 		protected LoginPage loginPage;
 		protected MealPage mealPage;
@@ -61,7 +61,7 @@ public abstract class BasicTest {
 			this.wait= new WebDriverWait(driver, 20);
 			this.sa = new SoftAssert();
 			
-			this.authorizationPage = new AuthPage(driver, wait, js);
+			this.authPage = new AuthPage(driver, wait, js);
 			this.cartPage = new CartSummaryPage(driver, wait, js) ;
 			this.loginPage = new LoginPage(driver, wait, js) ;
 			this.mealPage = new MealPage(driver, wait, js) ;
