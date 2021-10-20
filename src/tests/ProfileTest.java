@@ -52,31 +52,30 @@ public class ProfileTest extends BasicTest {
 		private String countryName= "United Kingdom" ;
 		private String stateName= "Belfast" ;
 		private String cityName= "Dundonald" ;
-		
 
 
-//		@Test
-//		public void editProfileTest() throws InterruptedException {
-//			driver.get(baseURL + "guest-user/login-form");
-//			this.popupPage.clickCloseButton();
-//			Thread.sleep(1000);
-//			this.loginPage.login(username, password);
-//			
-//			String message = this.notificationPage.messageText();
-//			Assert.assertTrue(message.contains("Login Successfull"), "[ERROR] Message did not appear, not successful login.");
-//			Thread.sleep(1000);
-//			
-//			driver.get(baseURL + "member/profile");
-//			Thread.sleep(1000);
-//			this.profilePage.inputUserInfo(firstName, lastName, address, phone, zipCode, countryName, stateName, cityName);
-//			message = this.notificationPage.messageText();
-//			Assert.assertTrue(message.contains("Setup Successful"),"[ERROR] Message did not appear, not successful setup.");
-//			
-//			this.authPage.loggingOut();
-//			message = this.notificationPage.messageText();
-//			Assert.assertTrue(message.contains("Logout Successfull"),"[ERROR] Message did not appear, not successful logout.");
-//			
-//		}
+		@Test
+		public void editProfileTest() throws InterruptedException {
+			driver.get(baseURL + "guest-user/login-form");
+			this.popupPage.clickCloseButton();
+			Thread.sleep(1000);
+			this.loginPage.login(username, password);
+			
+			String message = this.notificationPage.messageText();
+			Assert.assertTrue(message.contains("Login Successfull"), "[ERROR] Message did not appear, not successful login.");
+			Thread.sleep(1000);
+			
+			driver.get(baseURL + "member/profile");
+			Thread.sleep(1000);
+			this.profilePage.inputUserInfo(firstName, lastName, address, phone, zipCode, countryName, stateName, cityName);
+			message = this.notificationPage.messageText();
+			Assert.assertTrue(message.contains("Setup Successful"),"[ERROR] Message did not appear, not successful setup.");
+			
+			this.authPage.loggingOut();
+			message = this.notificationPage.messageText();
+			Assert.assertTrue(message.contains("Logout Successfull"),"[ERROR] Message did not appear, not successful logout.");
+			
+		}
 		
 		@Test
 		public void changeProfileTest() throws InterruptedException, IOException {
@@ -109,7 +108,6 @@ public class ProfileTest extends BasicTest {
 			this.authPage.loggingOut();
 			message = this.notificationPage.messageText();
 			this.sa.assertTrue(message.contains("Logout Successfull"),"[ERROR] Message did not appear, not successful logout.");
-			
 			
 		}
 	
